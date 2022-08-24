@@ -1,0 +1,10 @@
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/lavie_logo_splash.png
+
+  android_12:
+    image: assets/lavie_logo_splash.png
+    icon_background_color: "#ffffff"
+# Every time you need to run this in terminal
+# flutter pub run flutter_native_splash:create --path=flutter_native_splash.yaml
+# image icon should be 488~571 px

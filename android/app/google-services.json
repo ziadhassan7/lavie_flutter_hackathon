@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "489426072483",
+    "project_id": "la-vie-360206",
+    "storage_bucket": "la-vie-360206.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:489426072483:android:ed1ed85349ed696eb72016",
+        "android_client_info": {
+          "package_name": "com.ziad.la_vie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "489426072483-b4bqt8s9u1lt7p722dn11qnd6d54gvgm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ziad.la_vie",
+            "certificate_hash": "dea9ebced7b8e2cfbf73724065a905ddec53b3d0"
+          }
+        },
+        {
+          "client_id": "489426072483-j9teqqdn2cugsj4tsok5fh5u1cin1gm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzvmWOk2_Gld_LPoHwvbWRRCeIjGVqg68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "489426072483-j9teqqdn2cugsj4tsok5fh5u1cin1gm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

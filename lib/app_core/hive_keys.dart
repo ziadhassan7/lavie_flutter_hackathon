@@ -1,0 +1,4 @@
+enum HiveKeys {
+  boxAuth,
+  authKey,
+}
