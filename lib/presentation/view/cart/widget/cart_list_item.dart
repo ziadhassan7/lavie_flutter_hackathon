@@ -5,8 +5,6 @@ import 'package:la_vie_web/presentation/provider/cart_provider.dart';
 import 'package:la_vie_web/presentation/view/common/text_poppins.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../data/controller/cart/cart_controller.dart';
-
 class CartListItem extends StatelessWidget {
   final String imageBaseUrl = "https://lavie.orangedigitalcenteregypt.com";
 
@@ -28,20 +26,26 @@ class CartListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 3,
+      /// Card Attributes
+      elevation: 10,
       shadowColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(7),
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
+
+
+        /// Card View
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             itemImage(),
             infoBox(),
             IconButton(
-                onPressed: () => Provider.of<CartProvider>(context, listen: false).deleteItem(id),
+                onPressed: () => Provider.of<CartProvider>(context, listen: false)
+                    .deleteItem(id),
+
                 icon: const Icon(Icons.delete, color: ColorConstants.accent,)
             ),
           ],
@@ -70,7 +74,7 @@ class CartListItem extends StatelessWidget {
     );
   }
 
-  ///Info
+  /// Info
   Widget infoBox() {
     return Expanded(
       child: Column(
@@ -83,7 +87,12 @@ class CartListItem extends StatelessWidget {
             child: TextPoppins("price: $price"),
           ),
 
-          TextPoppins("quantity: ${quantity.toString()}", color: ColorConstants.accent, ),
+          TextPoppins(
+            "quantity: ${quantity.toString()}",
+            color: ColorConstants.accent,
+            weight: FontWeight.w600,
+            size: 17,
+          ),
         ],
       ),
     );
