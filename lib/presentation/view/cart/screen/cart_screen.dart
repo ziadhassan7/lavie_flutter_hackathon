@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:la_vie_web/data/controller/cart/cart_controller.dart';
+import 'package:la_vie_web/app_core/color_constants.dart';
 import 'package:la_vie_web/presentation/view/cart/widget/empty_cart_view.dart';
 import 'package:la_vie_web/presentation/view/register/widget/button_accent.dart';
 import 'package:provider/provider.dart';
@@ -32,13 +32,14 @@ class CartScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           shadowColor: Colors.white,
           toolbarHeight: 65,
-          elevation: 0,
+          elevation: 10,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.black87,),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
 
+        ///                                                                     /Future Builder
         body: Consumer<CartProvider>(
           builder: (context, provider, child) {
             return FutureBuilder(
@@ -68,6 +69,7 @@ class CartScreen extends StatelessWidget {
         children: [
           Expanded(
             child: SizedBox(
+              ///                                                               /List of items
               child: ListView.builder(
                   itemCount: carts.length,
                   itemBuilder: (context, index) {
@@ -82,20 +84,59 @@ class CartScreen extends StatelessWidget {
             ),
           ),
 
-          Padding(
-              padding: const EdgeInsets.all(10),
+          ///                                                                   /Bottom part
+          Column(
+            children: [
 
-              child: SizedBox(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.90,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 35),
 
-                child: ButtonAccent("Checkout",
-                    onPressed: () => Provider.of<CartProvider>(context, listen: false).checkout(context)),
-              )
+                ///Total price section
+                child: Row(
+                  children: [
+                    TextPoppins("Price", size: 20,),
+
+                    const Spacer(),
+
+                    TextPoppins(
+                      "${getTotalPrice()} EGP",
+                      color: ColorConstants.accent,
+                      weight: FontWeight.w600,
+                      size: 20,
+                    ),
+              ],
+                ),
+              ),
+
+              /// Checkout Button
+              Padding(
+                  padding: const EdgeInsets.all(10),
+
+                  child: SizedBox(
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width * 0.90,
+
+                    child: ButtonAccent("Checkout",
+                        onPressed: () => Provider.of<CartProvider>(context, listen: false).checkout(context)),
+                  )
+              ),
+            ],
           )
         ]
     );
+  }
+
+  // returns a string with a total price of all items
+  String getTotalPrice() {
+    int total = 0;
+
+    for(var item in carts) {
+
+      total = total + (int.parse(item.price) * item.quantity);
+    }
+
+    return total.toString();
   }
 }
