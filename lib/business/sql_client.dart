@@ -61,8 +61,8 @@ class SqlClient {
     db!.update(
       tableCart,
       cartModel.toMap(),
-      where: '$columnId = ?',
-      whereArgs: [cartModel.id],
+      where: '$columnName = ?', //update with name not id
+      whereArgs: [cartModel.name],
     );
   }
 
