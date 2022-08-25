@@ -24,7 +24,7 @@ class BlogsScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           shadowColor: Colors.white,
           toolbarHeight: 65,
-          elevation: 0,
+          elevation: 7,
         ),
 
         body: Stack(
