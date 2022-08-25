@@ -41,7 +41,7 @@ class BlogListItem extends StatelessWidget {
         ),
 
         child: Card(
-          elevation: 3,
+          elevation: 7,
           shadowColor: Colors.white,
 
           shape: RoundedRectangleBorder(
