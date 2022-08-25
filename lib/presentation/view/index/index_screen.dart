@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 import '../../provider/navigation_bar_provider.dart';
 import '../blogs/screen/blogs_screen.dart';
 import '../home/screen/home_screen.dart';
+import '../notifications/screen/notification_screen.dart';
+import '../profile/screen/profile_screen.dart';
 
 class IndexScreen extends StatefulWidget {
   final String authKey;
@@ -32,8 +34,8 @@ class _IndexScreenState extends State<IndexScreen> {
                 BlogsScreen(authKey: widget.authKey),
                 QrScannerScreen(authKey: widget.authKey),
                 HomeScreen(authKey: widget.authKey),
-                HomeScreen(authKey: widget.authKey),
-                HomeScreen(authKey: widget.authKey),
+                NotificationScreen(authKey: widget.authKey),
+                ProfileScreen(authKey: widget.authKey),
               ]
           );
         },
