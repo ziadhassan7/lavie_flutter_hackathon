@@ -5,16 +5,14 @@ import '../../common/text_poppins.dart';
 import '../widget/notification_list_item.dart';
 
 class NotificationScreen extends StatelessWidget {
-  final String authKey;
 
-  NotificationScreen({Key? key, required this.authKey}) : super(key: key);
+  NotificationScreen({Key? key,}) : super(key: key);
 
   List<NotificationModel> data = [];
 
   Future<List<NotificationModel>> getNotifications(BuildContext context) async {
-
     try {
-      data = await NotificationController.getNotifications(context, authKey,);
+      data = await NotificationController.getNotifications(context,);
 
     } catch (error) {
       print("Error: ${error}");
@@ -58,10 +56,10 @@ class NotificationScreen extends StatelessWidget {
               separatorBuilder: (context, index) => const Divider(),
             )
 
-            : const Center(child: CircularProgressIndicator(),);
+            : Center(child: TextPoppins("You have no notifications"),);
 
           } else {
-            return Center(child: TextPoppins("You have no notifications"),);
+            return const Center(child: CircularProgressIndicator(),);
           }
         },
       ),
