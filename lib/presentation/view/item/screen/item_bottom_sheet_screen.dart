@@ -1,11 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:la_vie_web/presentation/provider/scanner_provider.dart';
 import 'package:la_vie_web/presentation/view/item/widget/bottom_sheet_view.dart';
-import 'package:la_vie_web/presentation/view/item/widget/text_box.dart';
 import 'package:provider/provider.dart';
 import '../../../provider/bottom_sheet_provider.dart';
-import '../../common/text_poppins.dart';
 import '../widget/floating_info_box.dart';
 
 class ItemBottomSheet extends StatelessWidget {
