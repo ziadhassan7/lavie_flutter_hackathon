@@ -4,10 +4,9 @@ import 'package:la_vie_web/app_core/color_constants.dart';
 import 'package:la_vie_web/app_core/hive_keys.dart';
 import 'package:la_vie_web/presentation/provider/bottom_sheet_provider.dart';
 import 'package:la_vie_web/presentation/provider/cart_provider.dart';
-import 'package:la_vie_web/presentation/provider/login_provider.dart';
+import 'package:la_vie_web/presentation/provider/auth_provider.dart';
 import 'package:la_vie_web/presentation/provider/navigation_bar_provider.dart';
 import 'package:la_vie_web/presentation/provider/scanner_provider.dart';
-import 'package:la_vie_web/presentation/view/home/screen/home_screen.dart';
 import 'package:la_vie_web/presentation/view/index/index_screen.dart';
 import 'package:la_vie_web/presentation/view/register/screen/register_screen.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +40,8 @@ class _MyAppState extends State<MyApp> {
     HiveUtil hive = HiveUtil();
 
     if(hive.get() != null) {
-      startScreen = IndexScreen(authKey: hive.get());
+      AuthProvider.setGlobalAuth(hive.get());
+      startScreen = const IndexScreen();
     } else {
       startScreen = RegisterScreen();
     }
@@ -52,7 +52,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => LoginProvider()),
+        ChangeNotifierProvider(create: (context) => AuthProvider()),
         ChangeNotifierProvider(create: (context) => BottomSheetProvider()),
         ChangeNotifierProvider(create: (context) => NavigationBarProvider()),
         ChangeNotifierProvider(create: (context) => ScannerProvider()),

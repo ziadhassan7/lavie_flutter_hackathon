@@ -6,9 +6,8 @@ import '../../item/screen/item_bottom_sheet_screen.dart';
 import '../widget/blog_list_view.dart';
 
 class BlogsScreen extends StatelessWidget {
-  String authKey;
 
-  BlogsScreen({Key? key, required this.authKey}) : super(key: key);
+  const BlogsScreen({Key? key}) : super(key: key);
 
 
   @override
@@ -30,7 +29,7 @@ class BlogsScreen extends StatelessWidget {
         body: Stack(
           children: [
             ///                                                                 /List of Blogs
-            BlogListView(authKey: authKey,),
+            BlogListView(),
 
             ///                                                                 /Bottom Blog Sheet
             Consumer<BottomSheetProvider>(

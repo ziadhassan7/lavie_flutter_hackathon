@@ -4,16 +4,15 @@ import 'package:la_vie_web/data/model/user/user_model.dart';
 import 'package:la_vie_web/presentation/view/common/text_poppins.dart';
 
 class UserInfoSection extends StatelessWidget {
-  String authKey;
 
-  UserInfoSection({Key? key , required this.authKey}) : super(key: key);
+  UserInfoSection({Key? key , }) : super(key: key);
 
   UserModel user = UserModel();
 
   Future<UserModel> getProfile(BuildContext context) async {
 
     try {
-      user = await ProfileController.getUser(context, authKey,);
+      user = await ProfileController.getUser(context,);
 
     } catch (error) {
       print("Error: ${error}");

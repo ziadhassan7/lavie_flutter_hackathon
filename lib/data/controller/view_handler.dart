@@ -14,6 +14,8 @@ class ViewHandler {
   }
 
   static void handleOutDatedAuth(context, e){
+    print("Reeeeeess: why tho");
+
     if (e.response?.statusCode == 401){
       navigateTo(context, RegisterScreen());
       print("Reeeeeess: 401");

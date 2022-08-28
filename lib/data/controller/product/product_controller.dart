@@ -5,6 +5,7 @@ import 'package:la_vie_web/data/model/products/products_model/all_product_model.
 import 'package:la_vie_web/data/model/products/products_model/product_model.dart';
 import 'package:la_vie_web/data/model/products/seed_model/all_seed_model.dart';
 import 'package:la_vie_web/data/model/products/tool_model/all_tool_model.dart';
+import 'package:la_vie_web/presentation/provider/auth_provider.dart';
 import '../../../data/model/products/products_model/all_product_model.dart';
 import '../../../data/repository/product/plant_repository.dart';
 import '../../../data/repository/product/product_repository.dart';
@@ -16,10 +17,10 @@ import '../view_handler.dart';
 class ProductController {
 
   static Future<AllProductsModel> getAllProducts(
-      BuildContext context, String authKey) {
+      BuildContext context) {
 
     try {
-      return ProductRepository().getProducts(context, authKey);
+      return ProductRepository().getProducts(context, AuthProvider.globalAuth);
     } on DioError catch (e) {
       print("Authorization errroooooor");
       ViewHandler.handleOutDatedAuth(context, e);
@@ -29,11 +30,14 @@ class ProductController {
   }
 
   static Future<ProductModel> getOneProduct(
-      BuildContext context, String authKey,
-      {required String productId}) {
+      BuildContext context, {required String productId}) {
 
     try {
-      return ProductRepository().getProductOne(context, authKey, productId: productId);
+      return ProductRepository().getProductOne(
+          context,
+          AuthProvider.globalAuth,
+          productId: productId
+      );
     } catch (e) {
       ViewHandler.handleOutDatedAuth(context, e);
       rethrow;
@@ -44,10 +48,10 @@ class ProductController {
   ///---------------------------------------------------------------------------
 
 
-  static Future<AllPlantModel> getAllPlants(BuildContext context, String authKey){
+  static Future<AllPlantModel> getAllPlants(BuildContext context){
 
     try {
-      return PlantRepository().getPlants(context, authKey);
+      return PlantRepository().getPlants(context, AuthProvider.globalAuth);
     } catch (e) {
       ViewHandler.handleOutDatedAuth(context, e);
       rethrow;
@@ -58,10 +62,10 @@ class ProductController {
   ///---------------------------------------------------------------------------
 
 
-  static Future<AllSeedModel> getAllSeeds(BuildContext context, String authKey){
+  static Future<AllSeedModel> getAllSeeds(BuildContext context){
 
     try {
-      return SeedRepository().getSeeds(context, authKey);
+      return SeedRepository().getSeeds(context, AuthProvider.globalAuth);
     } catch (e) {
       ViewHandler.handleOutDatedAuth(context, e);
       rethrow;
@@ -71,10 +75,10 @@ class ProductController {
   ///---------------------------------------------------------------------------
 
 
-  static Future<AllToolModel> getAllTools(BuildContext context, String authKey){
+  static Future<AllToolModel> getAllTools(BuildContext context,){
 
     try {
-      return ToolRepository().getTools(context, authKey);
+      return ToolRepository().getTools(context, AuthProvider.globalAuth);
     } catch (e) {
       ViewHandler.handleOutDatedAuth(context, e);
       rethrow;

@@ -11,9 +11,8 @@ import '../notifications/screen/notification_screen.dart';
 import '../profile/screen/profile_screen.dart';
 
 class IndexScreen extends StatefulWidget {
-  final String authKey;
 
-  const IndexScreen({Key? key, required this.authKey}) : super(key: key);
+  const IndexScreen({Key? key}) : super(key: key);
 
   @override
   State<IndexScreen> createState() => _IndexScreenState();
@@ -31,11 +30,11 @@ class _IndexScreenState extends State<IndexScreen> {
           return IndexedStack(
               index: NavigationBarProvider.screenIndex,
               children: [
-                BlogsScreen(authKey: widget.authKey),
-                QrScannerScreen(authKey: widget.authKey),
-                HomeScreen(authKey: widget.authKey),
-                NotificationScreen(authKey: widget.authKey),
-                ProfileScreen(authKey: widget.authKey),
+                const BlogsScreen(),
+                QrScannerScreen(),
+                HomeScreen(),
+                NotificationScreen(),
+                const ProfileScreen(),
               ]
           );
         },

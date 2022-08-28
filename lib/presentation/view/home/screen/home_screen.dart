@@ -7,10 +7,9 @@ import '../../../../data/controller/product/product_controller.dart';
 import '../../common/tabs_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-   String authKey;
    List tabs = ["All", "Plants", "Seeds", "Tools"];
 
-   HomeScreen({Key? key, required this.authKey}) : super(key: key);
+   HomeScreen({Key? key}) : super(key: key);
 
    @override
    Widget build(BuildContext context) {
@@ -80,22 +79,22 @@ class HomeScreen extends StatelessWidget {
              children: [
                //All
                ProductsView(
-                 futureFunction: ProductController.getAllProducts(context, authKey),
+                 futureFunction: ProductController.getAllProducts(context),
                  isProducts: true,),
 
                //Plants
                ProductsView(
-                 futureFunction: ProductController.getAllPlants(context, authKey),
+                 futureFunction: ProductController.getAllPlants(context),
                  isProducts: false,),
 
                //Seeds
                ProductsView(
-                 futureFunction: ProductController.getAllSeeds(context, authKey),
+                 futureFunction: ProductController.getAllSeeds(context),
                  isProducts: false,),
 
                //Tools
                ProductsView(
-                 futureFunction: ProductController.getAllTools(context, authKey),
+                 futureFunction: ProductController.getAllTools(context),
                  isProducts: false,),
              ],
            ),

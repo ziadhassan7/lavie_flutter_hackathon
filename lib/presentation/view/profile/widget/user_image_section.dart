@@ -4,15 +4,14 @@ import 'package:la_vie_web/data/controller/user/profile_controller.dart';
 import 'package:la_vie_web/data/model/user/user_model.dart';
 
 class UserImageSection extends StatelessWidget {
-  UserImageSection({Key? key, required this.authKey}) : super(key: key);
+  UserImageSection({Key? key,}) : super(key: key);
 
-  String authKey;
   String imageUrl = "";
 
   Future<String> getUserImage(BuildContext context) async {
 
     try {
-      UserModel userModel = await ProfileController.getUser(context, authKey);
+      UserModel userModel = await ProfileController.getUser(context);
       imageUrl = userModel.data!.imageUrl!;
 
     } catch (error) {

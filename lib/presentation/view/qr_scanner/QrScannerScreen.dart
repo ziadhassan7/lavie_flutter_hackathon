@@ -8,21 +8,17 @@ import '../../provider/scanner_provider.dart';
 import '../item/screen/item_bottom_sheet_screen.dart';
 
 class QrScannerScreen extends StatelessWidget {
-  String authKey;
 
-  QrScannerScreen({Key? key, required this.authKey}) : super(key: key);
-
+  QrScannerScreen({Key? key,}) : super(key: key);
 
   MobileScannerController cameraController = MobileScannerController();
-
   String? productId;
-
   BlogModel blogModel = BlogModel();
 
-  Future<BlogModel> getProduct(BuildContext context) async {
 
+  Future<BlogModel> getProduct(BuildContext context) async {
     try {
-      blogModel = await BlogController.getOneBlog(context, authKey, productId);
+      blogModel = await BlogController.getOneBlog(context, productId);
 
     } catch (error) {
       print("Error: ${error}");

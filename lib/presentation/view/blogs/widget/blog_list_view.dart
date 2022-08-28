@@ -4,16 +4,15 @@ import '../../../../data/model/blogs/all_blogs_model.dart';
 import 'blog_list_item.dart';
 
 class BlogListView extends StatelessWidget {
-  String authKey;
 
-  BlogListView({Key? key, required this.authKey}) : super(key: key);
+  BlogListView({Key? key,}) : super(key: key);
 
   AllBlogsModel blogsModel = AllBlogsModel();
 
   Future<AllBlogsModel> getProducts(BuildContext context) async {
 
     try {
-      blogsModel = await BlogController.getAllBlogs(context, authKey);
+      blogsModel = await BlogController.getAllBlogs(context,);
 
     } catch (error) {
       print("Error: ${error}");

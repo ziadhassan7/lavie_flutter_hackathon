@@ -3,7 +3,6 @@ import 'package:la_vie_web/data/controller/register/register_handler.dart';
 import 'package:la_vie_web/data/repository/auth_repository.dart';
 import '../../../business/google_login_api.dart';
 
-
 class RegisterController {
 
   static TextEditingController firstName = TextEditingController();
@@ -16,20 +15,7 @@ class RegisterController {
   static void signIn(BuildContext context){
 
     AuthRepository().signIn(email.text, password.text).then((value) => {
-      RegisterHandler.navigateToHomePage(context, value.data?.accessToken)
-
-
-      // and if it catches 401 => Login
-
-      // provider ---
-      // hive     ---
-      // dio      ---
-      // splash   ---
-      // home future list ---
-      // navi bar ---
-      // auth ---
-      // errors
-      // validators
+      RegisterHandler.authUser(context, value.data!.accessToken!)
 
     }).onError((error, stackTrace) => {
 
@@ -46,7 +32,7 @@ class RegisterController {
       AuthRepository().signUp(
           firstName.text, lastName.text, email.text, password.text
       ).then((value) => {
-        RegisterHandler.navigateToHomePage(context, value.data?.accessToken)
+        RegisterHandler.authUser(context, value.data!.accessToken!)
 
       }).onError((error, stackTrace) => {
 
