@@ -2,10 +2,10 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:la_vie_web/app_core/color_constants.dart';
+import 'package:la_vie_web/presentation/view/forum/screen/forum_index_screen.dart';
 import 'package:la_vie_web/presentation/view/qr_scanner/QrScannerScreen.dart';
 import 'package:provider/provider.dart';
 import '../../provider/navigation_bar_provider.dart';
-import '../blogs/screen/blogs_screen.dart';
 import '../home/screen/home_screen.dart';
 import '../notifications/screen/notification_screen.dart';
 import '../profile/screen/profile_screen.dart';
@@ -30,7 +30,7 @@ class _IndexScreenState extends State<IndexScreen> {
           return IndexedStack(
               index: NavigationBarProvider.screenIndex,
               children: [
-                const BlogsScreen(),
+                ForumIndexScreen(),
                 QrScannerScreen(),
                 HomeScreen(),
                 NotificationScreen(),
