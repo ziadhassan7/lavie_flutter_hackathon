@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:la_vie_web/data/controller/user/profile_controller.dart';
 import 'package:la_vie_web/data/model/user/user_model.dart';
@@ -33,22 +32,10 @@ class UserImageSection extends StatelessWidget {
             builder: (context, snapshot) {
 
               if (snapshot.hasData) {
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(1000),
+                return CircleAvatar(
+                    radius: 100, //size
 
-                  child: CachedNetworkImage(
-                    imageUrl: imageUrl,
-
-                    placeholder: (context, url) {
-                      return Image.asset("assets/loading.gif");
-                    },
-                    errorWidget: (context, url, error) {
-                      return Image.asset("assets/loading.gif",);
-                    },
-                    height: 250,
-                    width: 230,
-                    fit: BoxFit.fitHeight,
-                  ),
+                    backgroundImage: NetworkImage(imageUrl)
                 );
 
               } else {
