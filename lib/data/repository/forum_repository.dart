@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:la_vie_web/data/controller/view_handler.dart';
 import 'package:la_vie_web/data/model/forum/all_forums_model.dart';
 import 'package:la_vie_web/data/model/forum/forum_model.dart';
+import 'package:la_vie_web/data/model/forum/post_forum_model.dart';
 
 import '../../business/dio_client.dart';
 
@@ -58,6 +59,37 @@ class ForumRepository {
           "$endpoint/$forumId",
           options: Options(
               headers: {"Authorization": "Bearer $token"})
+      );
+
+      return ForumModel.fromJson(response.data);
+
+    } catch (e) {
+      ViewHandler.handleOutDatedAuth(context, e);
+      print("Authorization error");
+      rethrow;
+    }
+  }
+
+  /// Post A Forum
+  Future<ForumModel> postForum(
+      BuildContext context,
+      String token,{
+        required String title,
+        required String body,
+        required String image,
+      }) async {
+
+    try {
+      Response response = await dio.post(
+          endpoint,
+          options: Options(
+              headers: {"Authorization": "Bearer $token"}),
+
+          data: PostForum(
+            title: title,
+            description: body,
+            imageBase64: image,
+          ).toJson(),
       );
 
       return ForumModel.fromJson(response.data);

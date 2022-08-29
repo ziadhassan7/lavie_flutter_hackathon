@@ -84,16 +84,17 @@ class ForumListItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 5),
 
-                child: CachedNetworkImage(
-                  imageUrl: "https://lavie.orangedigitalcenteregypt.com${postImage!}",
+                child: Center(
+                  child: CachedNetworkImage(
+                    imageUrl: "https://lavie.orangedigitalcenteregypt.com${postImage!}",
 
-                  placeholder: (context, url) {
-                    return Image.asset("assets/loading.gif");
-                  },
-                  errorWidget: (context, url, error) {
-                    return Image.asset("assets/placeholder.jpg",);
-                  },
-
+                    placeholder: (context, url) {
+                      return Image.asset("assets/loading.gif");
+                    },
+                    errorWidget: (context, url, error) {
+                      return Image.asset("assets/placeholder.jpg",);
+                    },
+                  ),
                 ),
               ) : const SizedBox(),
 

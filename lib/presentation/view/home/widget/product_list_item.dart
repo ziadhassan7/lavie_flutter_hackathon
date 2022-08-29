@@ -2,7 +2,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:la_vie_web/data/controller/view_handler.dart';
 import 'package:la_vie_web/data/model/common_models/general_data.dart';
-import 'package:progressive_image/progressive_image.dart';
 import '../../../../app_core/color_constants.dart';
 import '../../../../data/controller/cart/cart_controller.dart';
 import '../../../../data/model/cart/cart_model.dart';

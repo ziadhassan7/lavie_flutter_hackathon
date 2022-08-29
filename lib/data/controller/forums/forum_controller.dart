@@ -8,6 +8,10 @@ import '../view_handler.dart';
 
 class ForumController {
 
+  static TextEditingController titleController = TextEditingController();
+  static TextEditingController bodyController = TextEditingController();
+
+
   static Future<AllForumsModel> getAllForums(BuildContext context) {
 
     try {
@@ -37,6 +41,30 @@ class ForumController {
 
     try {
       return ForumRepository().getForumOne(context, AuthProvider.globalAuth, forumId: forumId);
+    } on DioError catch (e) {
+      print("Authorization errroooooor");
+      ViewHandler.handleOutDatedAuth(context, e);
+      rethrow;
+    }
+  }
+
+  ///---------------------------------------------------------------------------
+  static void postForum (BuildContext context, {
+    required String image,
+  }) {
+
+    try {
+      //post request
+      ForumRepository().postForum(context,
+          AuthProvider.globalAuth,
+          title: titleController.text,
+          body: bodyController.text,
+          image: image);
+
+      //clear textFields
+      titleController.clear();
+      bodyController.clear();
+
     } on DioError catch (e) {
       print("Authorization errroooooor");
       ViewHandler.handleOutDatedAuth(context, e);

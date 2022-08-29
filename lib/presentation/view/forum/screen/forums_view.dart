@@ -38,7 +38,7 @@ class ForumsView extends StatelessWidget {
           return model.data != null ?
 
           ListView.builder(
-            itemCount: 10,
+            itemCount: model.data!.length,
             itemBuilder: (context, index) {
 
               return ForumListItem(
@@ -47,7 +47,7 @@ class ForumsView extends StatelessWidget {
 
                 userName: getFullUserName(
                     model.data![index].user!.firstName!,
-                    model.data![index].user!.firstName!),
+                    model.data![index].user!.lastName!),
 
                 postTitle: model.data![index].title!,
                 postBody: model.data![index].description!,

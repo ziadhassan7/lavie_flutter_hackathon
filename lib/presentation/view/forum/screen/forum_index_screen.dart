@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:la_vie_web/data/controller/view_handler.dart';
 import 'package:la_vie_web/presentation/view/forum/screen/forums_view.dart';
+import 'package:la_vie_web/presentation/view/forum/screen/new_post_screen.dart';
 
+import '../../../../app_core/color_constants.dart';
 import '../../common/tabs_widget.dart';
 import '../../common/text_poppins.dart';
 
@@ -39,6 +42,19 @@ class ForumIndexScreen extends StatelessWidget {
             tabsView(context)
           ],
         ),),
+
+      ///                                                                       /Action Button (new post)
+      floatingActionButton: FloatingActionButton(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))
+        ),
+
+        backgroundColor: ColorConstants.accent,
+
+        onPressed: () { ViewHandler.navigateTo(context, const NewPostScreen()); },
+
+        child: const Icon(Icons.add),
+      ),
     );
   }
 

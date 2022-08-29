@@ -6,6 +6,7 @@ import 'package:la_vie_web/presentation/provider/bottom_sheet_provider.dart';
 import 'package:la_vie_web/presentation/provider/cart_provider.dart';
 import 'package:la_vie_web/presentation/provider/auth_provider.dart';
 import 'package:la_vie_web/presentation/provider/navigation_bar_provider.dart';
+import 'package:la_vie_web/presentation/provider/picked_image_provider.dart';
 import 'package:la_vie_web/presentation/provider/scanner_provider.dart';
 import 'package:la_vie_web/presentation/view/index/index_screen.dart';
 import 'package:la_vie_web/presentation/view/register/screen/register_screen.dart';
@@ -57,6 +58,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => NavigationBarProvider()),
         ChangeNotifierProvider(create: (context) => ScannerProvider()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
+        ChangeNotifierProvider(create: (context) => PickedImageProvider()),
       ],
 
       child: MaterialApp(
