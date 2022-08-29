@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:la_vie_web/app_core/color_constants.dart';
 import 'package:la_vie_web/presentation/view/register/widget/social_login.dart';
-import 'package:la_vie_web/presentation/view/register/widget/login_user_input.dart';
+import 'package:la_vie_web/presentation/view/common/user_input.dart';
 import 'package:la_vie_web/presentation/view/register/widget/remember_me_widget.dart';
 import '../../../../data/controller/register/register_controller.dart';
 import '../../common/text_poppins.dart';
@@ -19,13 +19,17 @@ class LoginView extends StatelessWidget {
 
       children: [
 
-        LoginUserInput(label: "Email",
+        UserInput(label: "Email",
           isPassword: false,
-          textController: RegisterController.email,),
+          textController: RegisterController.email,
+          isExpanded: false,
+        ),
 
-        LoginUserInput(label: "Password",
+        UserInput(label: "Password",
           isPassword: true,
-          textController: RegisterController.password,),
+          textController: RegisterController.password,
+          isExpanded: false
+        ),
 
 
         Row(
