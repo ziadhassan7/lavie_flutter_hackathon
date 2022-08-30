@@ -11,7 +11,7 @@ class ForumsView extends StatelessWidget {
   AllForumsModel model = AllForumsModel();
 
 
-  Future<AllForumsModel> getDate(BuildContext context) async {
+  Future<AllForumsModel> getData(BuildContext context) async {
 
     try {
       model = isAllForums ?
@@ -30,7 +30,7 @@ class ForumsView extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return FutureBuilder(
-      future: getDate(context),
+      future: getData(context),
       builder: (context, snapshot) {
 
         if (snapshot.hasData) {
