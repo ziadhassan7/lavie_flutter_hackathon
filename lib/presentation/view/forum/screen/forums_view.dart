@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:la_vie_web/data/controller/forums/forum_controller.dart';
 import 'package:la_vie_web/data/model/forum/all_forums_model.dart';
 import 'package:la_vie_web/presentation/view/forum/screen/post_screen.dart';
-
 import '../../../../data/controller/view_handler.dart';
 import '../widget/forum_list_item.dart';
 
