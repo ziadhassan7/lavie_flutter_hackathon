@@ -44,8 +44,8 @@ class UserInput extends StatelessWidget {
                 child: TextFormField(
                   expands: isExpanded ? true : false,
                   textAlignVertical: TextAlignVertical.top,
-                  maxLines: null,
                   minLines: null,
+                  maxLines: isPassword? 1:null,
                   obscureText: isPassword? true:false,
                   enableSuggestions: isPassword? false:true,
                   autocorrect: isPassword? false:true,
