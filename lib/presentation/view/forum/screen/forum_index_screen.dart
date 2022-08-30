@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:la_vie_web/data/controller/view_handler.dart';
 import 'package:la_vie_web/presentation/view/forum/screen/forums_view.dart';
 import 'package:la_vie_web/presentation/view/forum/screen/new_post_screen.dart';
-
 import '../../../../app_core/color_constants.dart';
 import '../../common/tabs_widget.dart';
 import '../../common/text_poppins.dart';

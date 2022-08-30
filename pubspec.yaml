@@ -48,6 +48,7 @@ dependencies:
   sqflite: ^2.0.3+1
   path: ^1.8.1
   image_picker: ^0.8.5+3
+  like_button: ^2.0.4
 
 dev_dependencies:
   flutter_test:

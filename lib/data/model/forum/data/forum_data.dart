@@ -1,6 +1,6 @@
 import 'package:la_vie_web/data/model/forum/data/nested/user.dart';
-import 'nested/forum_comments.dart';
-import 'nested/forum_likes.dart';
+import 'nested/comment_data.dart';
+import 'nested/like_data.dart';
 
 class ForumData {
   String? forumId;
@@ -8,8 +8,8 @@ class ForumData {
   String? description;
   String? imageUrl;
   String? userId;
-  List<Likes>? forumLikes;
-  List<Comments>? forumComments;
+  List<LikeData>? forumLikes;
+  List<CommentData>? forumComments;
   PostUser? user;
 
   ForumData(
@@ -29,15 +29,15 @@ class ForumData {
     imageUrl = json['imageUrl'];
     userId = json['userId'];
     if (json['ForumLikes'] != null) {
-      forumLikes = <Likes>[];
+      forumLikes = <LikeData>[];
       json['ForumLikes'].forEach((v) {
-        forumLikes!.add(Likes.fromJson(v));
+        forumLikes!.add(LikeData.fromJson(v));
       });
     }
     if (json['ForumComments'] != null) {
-      forumComments = <Comments>[];
+      forumComments = <CommentData>[];
       json['ForumComments'].forEach((v) {
-        forumComments!.add(Comments.fromJson(v));
+        forumComments!.add(CommentData.fromJson(v));
       });
     }
     user = json['user'] != null ? PostUser.fromJson(json['user']) : null;

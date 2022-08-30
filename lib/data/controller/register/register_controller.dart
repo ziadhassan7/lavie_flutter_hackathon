@@ -15,7 +15,12 @@ class RegisterController {
   static void signIn(BuildContext context){
 
     AuthRepository().signIn(email.text, password.text).then((value) => {
-      RegisterHandler.authUser(context, value.data!.accessToken!)
+
+      RegisterHandler.authUser(
+          context,
+          userId: value.data!.user!.userId!,
+          auth: value.data!.accessToken!
+      )
 
     }).onError((error, stackTrace) => {
 
@@ -31,8 +36,14 @@ class RegisterController {
 
       AuthRepository().signUp(
           firstName.text, lastName.text, email.text, password.text
+
       ).then((value) => {
-        RegisterHandler.authUser(context, value.data!.accessToken!)
+
+        RegisterHandler.authUser(
+            context,
+            userId: value.data!.user!.userId!,
+            auth: value.data!.accessToken!
+        )
 
       }).onError((error, stackTrace) => {
 

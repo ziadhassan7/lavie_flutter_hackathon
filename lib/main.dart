@@ -5,12 +5,14 @@ import 'package:la_vie_web/app_core/hive_keys.dart';
 import 'package:la_vie_web/presentation/provider/bottom_sheet_provider.dart';
 import 'package:la_vie_web/presentation/provider/cart_provider.dart';
 import 'package:la_vie_web/presentation/provider/auth_provider.dart';
+import 'package:la_vie_web/presentation/provider/like_provider.dart';
 import 'package:la_vie_web/presentation/provider/navigation_bar_provider.dart';
 import 'package:la_vie_web/presentation/provider/picked_image_provider.dart';
 import 'package:la_vie_web/presentation/provider/scanner_provider.dart';
 import 'package:la_vie_web/presentation/view/index/index_screen.dart';
 import 'package:la_vie_web/presentation/view/register/screen/register_screen.dart';
 import 'package:provider/provider.dart';
+import 'app_core/global_data.dart';
 import 'data/shared_pref/hive_util.dart';
 
 
@@ -41,7 +43,7 @@ class _MyAppState extends State<MyApp> {
     HiveUtil hive = HiveUtil();
 
     if(hive.get() != null) {
-      AuthProvider.setGlobalAuth(hive.get());
+      GlobalData.setGlobalAuth(hive.get());
       startScreen = const IndexScreen();
     } else {
       startScreen = RegisterScreen();
@@ -59,6 +61,7 @@ class _MyAppState extends State<MyApp> {
         ChangeNotifierProvider(create: (context) => ScannerProvider()),
         ChangeNotifierProvider(create: (context) => CartProvider()),
         ChangeNotifierProvider(create: (context) => PickedImageProvider()),
+        ChangeNotifierProvider(create: (context) => LikeProvider()),
       ],
 
       child: MaterialApp(

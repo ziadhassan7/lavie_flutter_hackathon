@@ -4,8 +4,10 @@ import 'package:la_vie_web/data/controller/view_handler.dart';
 import 'package:la_vie_web/data/model/forum/all_forums_model.dart';
 import 'package:la_vie_web/data/model/forum/forum_model.dart';
 import 'package:la_vie_web/data/model/forum/post_forum_model.dart';
-
+import 'package:la_vie_web/data/model/forum/like/like_model.dart';
 import '../../business/dio_client.dart';
+import '../model/forum/comment/comment_model.dart';
+import '../model/forum/comment/post_comment.dart';
 
 class ForumRepository {
   DioClient dio = DioClient();
@@ -93,6 +95,57 @@ class ForumRepository {
       );
 
       return ForumModel.fromJson(response.data);
+
+    } catch (e) {
+      ViewHandler.handleOutDatedAuth(context, e);
+      print("Authorization error");
+      rethrow;
+    }
+  }
+
+
+  /// Like
+  Future<LikeModel> postLike(
+      BuildContext context,
+      String token,
+      {required String forumId}) async {
+
+    try {
+      Response response = await dio.post(
+        "$endpoint/$forumId/like",
+        options: Options(
+            headers: {"Authorization": "Bearer $token"}),
+      );
+
+      return LikeModel.fromJson(response.data);
+
+    } catch (e) {
+      ViewHandler.handleOutDatedAuth(context, e);
+      print("Authorization error");
+      rethrow;
+    }
+  }
+
+  /// Comment
+  Future<CommentModel> postComment(
+      BuildContext context,
+      String token,{
+        required String forumId,
+        required String comment,
+      }) async {
+
+    try {
+      Response response = await dio.post(
+        "$endpoint/$forumId/comment",
+        options: Options(
+            headers: {"Authorization": "Bearer $token"}),
+
+        data: PostComment(
+          comment: comment
+        ).toJson(),
+      );
+
+      return CommentModel.fromJson(response.data);
 
     } catch (e) {
       ViewHandler.handleOutDatedAuth(context, e);
