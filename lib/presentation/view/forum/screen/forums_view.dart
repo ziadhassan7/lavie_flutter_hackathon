@@ -37,45 +37,51 @@ class ForumsView extends StatelessWidget {
 
         if (snapshot.hasData) {
 
-          return model.data != null ?
+          if(model.data != null) {
+            return model.data!.isNotEmpty ?
 
-          ListView.builder(
-            itemCount: model.data!.length,
-            itemBuilder: (context, index) {
+            ListView.builder(
+                itemCount: model.data!.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
 
-              return InkWell(
-                /// List Item click
-                onTap: () {
-                  ViewHandler.navigateTo(context, PostScreen(
-                    forumId: model.data![index].forumId!,
-                    userName: getFullUserName(
-                        model.data![index].user!.firstName!,
-                        model.data![index].user!.lastName!),
-                  ));
-                },
+                    /// List Item click
+                    onTap: () {
+                      ViewHandler.navigateTo(context, PostScreen(
+                        forumId: model.data![index].forumId!,
+                        userName: getFullUserName(
+                            model.data![index].user!.firstName!,
+                            model.data![index].user!.lastName!),
+                      ));
+                    },
 
-                /// List Item
-                child: ForumListItem(
-                  forumId: model.data![index].forumId!,
-                  userImage: model.data![index].user!.imageUrl!,
+                    /// List Item
+                    child: ForumListItem(
+                      forumId: model.data![index].forumId!,
+                      userImage: model.data![index].user!.imageUrl!,
 
-                  userName: getFullUserName(
-                      model.data![index].user!.firstName!,
-                      model.data![index].user!.lastName!),
+                      userName: getFullUserName(
+                          model.data![index].user!.firstName!,
+                          model.data![index].user!.lastName!),
 
-                  postTitle: model.data![index].title!,
-                  postBody: model.data![index].description!,
-                  postImage: model.data![index].imageUrl,
-                  likes: model.data![index].forumLikes!,
-                  comments: model.data![index].forumComments!,
-                ),
-              );
-          })
+                      postTitle: model.data![index].title!,
+                      postBody: model.data![index].description!,
+                      postImage: model.data![index].imageUrl,
+                      likes: model.data![index].forumLikes!,
+                      comments: model.data![index].forumComments!,
+                    ),
+                  );
+                })
 
-          : const Center(child: CircularProgressIndicator(),);
+                : const Center(child: Text("There are no posts"));
+
+
+          } else {
+            return const Center(child: Text("No Internet Connection"));
+          }
 
         } else {
-          return const Center(child: Text("There are currently no posts"));
+          return const Center(child: CircularProgressIndicator(),);
         }
       }
     );
