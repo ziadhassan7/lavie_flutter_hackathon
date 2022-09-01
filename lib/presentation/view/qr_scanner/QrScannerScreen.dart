@@ -5,16 +5,23 @@ import 'package:provider/provider.dart';
 import '../../../data/controller/blogs/blog_controller.dart';
 import '../../../data/model/blogs/blog_model.dart';
 import '../../provider/scanner_provider.dart';
-import '../item/screen/item_bottom_sheet_screen.dart';
+import '../bottom_sheet/screen/item_bottom_sheet_screen.dart';
 
-class QrScannerScreen extends StatelessWidget {
+class QrScannerScreen extends StatefulWidget {
+  //Stateless leads to null, when refreshing screen
 
   QrScannerScreen({Key? key,}) : super(key: key);
 
-  MobileScannerController cameraController = MobileScannerController();
-  String? productId;
-  BlogModel blogModel = BlogModel();
+  @override
+  State<QrScannerScreen> createState() => _QrScannerScreenState();
+}
 
+class _QrScannerScreenState extends State<QrScannerScreen> {
+  MobileScannerController cameraController = MobileScannerController();
+
+  String? productId;
+
+  BlogModel blogModel = BlogModel();
 
   Future<BlogModel> getProduct(BuildContext context) async {
     try {

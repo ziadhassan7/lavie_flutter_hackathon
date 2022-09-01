@@ -1,14 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../../provider/bottom_sheet_provider.dart';
+import '../../../../data/controller/blogs/blog_controller.dart';
+import '../../../../data/model/blogs/all_blogs_model.dart';
 import '../../common/text_poppins.dart';
-import '../../item/screen/item_bottom_sheet_screen.dart';
-import '../widget/blog_list_view.dart';
+import '../widget/blog_list_item.dart';
 
 class BlogsScreen extends StatelessWidget {
 
-  const BlogsScreen({Key? key}) : super(key: key);
+  BlogsScreen({Key? key}) : super(key: key);
 
+
+  AllBlogsModel blogsModel = AllBlogsModel();
+
+  Future<AllBlogsModel> getProducts(BuildContext context) async {
+
+    try {
+      blogsModel = await BlogController.getAllBlogs(context,);
+
+    } catch (error) {
+      print("Error: ${error}");
+    }
+
+    return blogsModel;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,31 +39,35 @@ class BlogsScreen extends StatelessWidget {
           elevation: 7,
         ),
 
-        body: Stack(
-          children: [
-            ///                                                                 /List of Blogs
-            BlogListView(),
+        body: FutureBuilder(
+            future: getProducts(context),
 
-            ///                                                                 /Bottom Blog Sheet
-            Consumer<BottomSheetProvider>(
-              builder: (context, provider, child) {
+            builder: (context, AsyncSnapshot snapshot) {
+              if (snapshot.hasData) {
 
-                return (provider.isOpened)
+              return (blogsModel.data != null)
 
-                ? ItemBottomSheet(
-                  imageUrl: provider.imageUrl!,
-                  title: provider.title!,
-                  description: provider.description!,
-                  sunLight: provider.sunLight!,
-                  waterCapacity: provider.waterCapacity!,
-                  temperature: provider.temperature!,
-                )
+                  ?  ListView.builder(
+                  itemCount: blogsModel.data!.plants!.length,
 
-                : const SizedBox();
-              },
-            ),
-          ],
-        )
+                  itemBuilder: (context, index) {
+                    return BlogListItem(
+                      imageUrl: blogsModel.data!.plants![index].imageUrl!,
+                      title: blogsModel.data!.plants![index].name!,
+                      description: blogsModel.data!.plants![index].description!,
+                      sunLight: blogsModel.data!.plants![index].sunLight!,
+                      waterCapacity: blogsModel.data!.plants![index].waterCapacity!,
+                      temperature: blogsModel.data!.plants![index].temperature!,
+                    );
+                  }
+              )
+                  :   const Center(child: CircularProgressIndicator(),);
+
+            } else {
+              return const Center(child: Text("There are no Blogs today.."),);
+            }
+
+        })
 
     );
   }

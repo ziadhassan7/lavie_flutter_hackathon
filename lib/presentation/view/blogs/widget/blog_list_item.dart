@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:la_vie_web/presentation/provider/bottom_sheet_provider.dart';
-import 'package:la_vie_web/presentation/view/item/widget/text_box.dart';
+import 'package:la_vie_web/data/controller/view_handler.dart';
+import 'package:la_vie_web/presentation/view/blog_item/screen/blog_item_screen.dart';
+import 'package:la_vie_web/presentation/view/bottom_sheet/widget/text_box.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:provider/provider.dart';
 
 class BlogListItem extends StatelessWidget {
   final String imageBaseUrl = "https://lavie.orangedigitalcenteregypt.com";
@@ -31,14 +31,17 @@ class BlogListItem extends StatelessWidget {
 
       child: InkWell(
 
-        onTap: () => Provider.of<BottomSheetProvider>(context, listen: false).show(
-          imageUrl: imageUrl,
-          title: title,
-          description: description,
-          sunLight: sunLight,
-          waterCapacity: waterCapacity,
-          temperature: temperature,
-        ),
+        onTap: () => ViewHandler.navigateTo(
+            context,
+            BlogItemScreen(
+                imageUrl: imageUrl,
+                title: title,
+                description: description,
+                sunLight: sunLight,
+                waterCapacity: waterCapacity,
+                temperature: temperature,
+            ),
+            isReplace: false),
 
         child: Card(
           elevation: 7,
