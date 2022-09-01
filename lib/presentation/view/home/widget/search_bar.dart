@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:la_vie_web/presentation/view/search/screen/search_screen.dart';
 
+import '../../../../data/controller/view_handler.dart';
 import '../../common/text_poppins.dart';
 
 class SearchBar extends StatelessWidget {
@@ -13,6 +15,9 @@ class SearchBar extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
 
         child: InkWell(
+          onTap: ()=> ViewHandler.navigateTo(context, SearchScreen(),
+              isReplace: false),
+
           child: Container(
             width: 200,
 
