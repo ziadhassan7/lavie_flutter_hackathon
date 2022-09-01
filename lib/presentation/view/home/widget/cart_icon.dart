@@ -13,7 +13,7 @@ class CartIcon extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
 
       child: InkWell(
-        onTap: () => ViewHandler.navigateTo(context, CartScreen()),
+        onTap: () => ViewHandler.navigateTo(context, CartScreen(), isReplace: false),
 
         child: Container(
           decoration: const BoxDecoration(
