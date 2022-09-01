@@ -4,11 +4,11 @@ La Vie
 
 ## Splash Screen
 
-<img src="https://user-images.githubusercontent.com/31738365/188024215-7048670b-27a8-40fb-8806-2e8c172876c3.jpg" width="200" height="425">
+<img src="https://user-images.githubusercontent.com/31738365/188024215-7048670b-27a8-40fb-8806-2e8c172876c3.jpg" width="205" height="425">
 
 ## Products View
 
-<img src="https://user-images.githubusercontent.com/31738365/188024491-f01d5db1-ac90-4ece-9ae1-1099f6ea980a.jpg" width="200" height="425">  .  <img src="https://user-images.githubusercontent.com/31738365/188024510-69bac4f5-1c6f-4be7-ae4d-ca19bba16df9.jpg" width="200" height="425">
+<img src="https://user-images.githubusercontent.com/31738365/188024491-f01d5db1-ac90-4ece-9ae1-1099f6ea980a.jpg" width="215" height="440">  .  <img src="https://user-images.githubusercontent.com/31738365/188024510-69bac4f5-1c6f-4be7-ae4d-ca19bba16df9.jpg" width="215" height="440">
 
 ## Qr Scanner Screen
 
@@ -24,4 +24,4 @@ La Vie
 
 ## Notifications
 
-<img src="https://user-images.githubusercontent.com/31738365/188025380-c3f431fc-48e6-4a34-90cb-d87e40f7d232.jpg" width="200" height="425">
+<img src="https://user-images.githubusercontent.com/31738365/188025380-c3f431fc-48e6-4a34-90cb-d87e40f7d232.jpg" width="215" height="440">  .  <img src="https://user-images.githubusercontent.com/31738365/188026346-fb1afe44-7a6b-4e1b-bdf3-893f9df8f69a.jpg" width="215" height="440">
