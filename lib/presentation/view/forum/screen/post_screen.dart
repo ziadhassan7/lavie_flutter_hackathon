@@ -9,6 +9,8 @@ import '../../common/text_poppins.dart';
 import '../widget/forum_list_item.dart';
 
 class PostScreen extends StatelessWidget {
+  final ScrollController _scrollController = ScrollController();
+
   String forumId;
   String userName;
 
@@ -56,12 +58,15 @@ class PostScreen extends StatelessWidget {
       body: Column(
         children: [
 
-          Expanded(
-            child: SizedBox(
-              child: SingleChildScrollView(
-                child: Consumer<CommentProvider>(
-                  builder: (context, provider, child) {
-                  return FutureBuilder(
+          Consumer<CommentProvider>(
+            builder: (context, provider, child) {
+
+            return Expanded(
+              child: SizedBox(
+                child: SingleChildScrollView(
+                  controller: _scrollController,
+
+                  child: FutureBuilder(
                     future: getData(context),
                     builder: (context, snapshot) {
                       if (snapshot.hasData){
@@ -98,12 +103,12 @@ class PostScreen extends StatelessWidget {
                       } else {
                         return const Center(child: CircularProgressIndicator(),);
                       }
-                    }
-                  );
                 },
               ),),
             ),
-          ),
+          );
+  },
+),
 
 
           bottomSendBar(context),
@@ -122,8 +127,8 @@ class PostScreen extends StatelessWidget {
         children: [
           Expanded(
 
-            ///                                                           /TextFormField -
-            ///                                                           text field for typing your message
+            ///                                                                 /TextFormField -
+            ///                                                                 text field for typing your message
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
 
@@ -140,8 +145,16 @@ class PostScreen extends StatelessWidget {
                 ///                                                             /Send Button -
                 ///                                                             sends a new message
           InkWell(
-            onTap: () => Provider.of<CommentProvider>(context, listen: false)
-                .comment(context, forumId),
+            onTap: () {
+              Provider.of<CommentProvider>(context, listen: false)
+                  .comment(context, forumId);
+
+              _scrollController.animateTo(
+                _scrollController.position.maxScrollExtent, //we used min because list is reversed
+                curve: Curves.easeOut,
+                duration: const Duration(milliseconds: 500),
+              );
+            },
 
             child: const Icon(Icons.send, color: ColorConstants.accent, size: 25,))
         ],
