@@ -22,7 +22,7 @@ class TimeHandler {
         return "This moment";
 
       case MINUTES_AGO:
-        return "${minute - DateTime.now().minute} minutes ago";
+        return "${DateTime.now().minute - minute} minutes ago";
 
       case TODAY:
         return "Today at ${twoDigitFormatter(hour)}:${twoDigitFormatter(minute)}";
@@ -48,7 +48,7 @@ class TimeHandler {
       if (minute == DateTime.now().minute) {
         return THIS_MOMENT;
 
-      } if(hour == DateTime.now().minute) {
+      } if(hour == DateTime.now().hour) {
         return MINUTES_AGO;
 
       }
