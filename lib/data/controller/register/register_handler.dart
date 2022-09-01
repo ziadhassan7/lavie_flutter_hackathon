@@ -11,22 +11,23 @@ class RegisterHandler {
   static void authUser (BuildContext context,
       {required String userId, required String auth}) {
 
+    _saveGlobals(auth, userId);
+
+    //now go to HomePage
+    ViewHandler.navigateTo(context, const IndexScreen(), isReplace: true);
+  }
+
+  static void _saveGlobals(auth, userId) {
     //save userAuth across application
-    _saveToken(auth);
+    GlobalData.setGlobalAuth(auth);
 
     //save userId across application
     GlobalData.setGlobalUserId(userId);
 
-    //now go to HomePage
-    ViewHandler.navigateTo(context, const IndexScreen());
-  }
-
-  static void _saveToken(auth) {
-    GlobalData.setGlobalAuth(auth);
-
     if (AuthProvider.rememberMe) {
       HiveUtil hive = HiveUtil();
-      hive.put(auth);
+      hive.putAuth(auth); //Save auth permanently
+      hive.putUserId(userId); //Save userId permanently
     }
   }
 
