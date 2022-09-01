@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:la_vie_web/presentation/view/common/text_poppins.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import '../../../data/controller/blogs/blog_controller.dart';
@@ -70,13 +71,23 @@ class _QrScannerScreenState extends State<QrScannerScreen> {
 
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
-                        return ItemBottomSheet(
-                          imageUrl: blogModel.data!.imageUrl!,
-                          title: blogModel.data!.name!,
-                          description: blogModel.data!.description!,
-                          sunLight: blogModel.data!.sunLight!,
-                          waterCapacity: blogModel.data!.waterCapacity!,
-                          temperature: blogModel.data!.temperature!,);
+
+                        if( blogModel.data != null) {
+                          return ItemBottomSheet(
+                            imageUrl: blogModel.data!.imageUrl!,
+                            title: blogModel.data!.name!,
+                            description: blogModel.data!.description!,
+                            sunLight: blogModel.data!.sunLight!,
+                            waterCapacity: blogModel.data!.waterCapacity!,
+                            temperature: blogModel.data!.temperature!,);
+
+                        } else {
+                          //ViewHandler.showSnackBar(context, "Lol");
+                          return Center(child: TextPoppins(
+                            "Not a valid Qr code",
+                            size: 14),);
+                        }
+
                       } else {
                         return const Center(child: CircularProgressIndicator(),);
                       }
