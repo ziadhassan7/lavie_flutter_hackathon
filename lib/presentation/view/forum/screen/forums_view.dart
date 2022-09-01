@@ -51,7 +51,8 @@ class ForumsView extends StatelessWidget {
                         userName: getFullUserName(
                             model.data![index].user!.firstName!,
                             model.data![index].user!.lastName!),
-                      ));
+                        ),
+                        isReplace: false);
                     },
 
                     /// List Item

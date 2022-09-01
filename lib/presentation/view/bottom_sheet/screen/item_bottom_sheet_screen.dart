@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:la_vie_web/presentation/provider/scanner_provider.dart';
-import 'package:la_vie_web/presentation/view/item/widget/bottom_sheet_view.dart';
 import 'package:provider/provider.dart';
 import '../../../provider/bottom_sheet_provider.dart';
+import '../widget/bottom_sheet_view.dart';
 import '../widget/floating_info_box.dart';
 
 class ItemBottomSheet extends StatelessWidget {
@@ -68,12 +68,10 @@ class ItemBottomSheet extends StatelessWidget {
                 ),
 
                 ///                                                             /Bottom Sheet
-                SingleChildScrollView(
-                  child: BottomSheetView(
-                    imageUrl: imageUrl,
-                    title: title,
-                    description: description,
-                  ),
+                BottomSheetView(
+                  imageUrl: imageUrl,
+                  title: title,
+                  description: description,
                 )
               ],
             ),

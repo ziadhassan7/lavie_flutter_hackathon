@@ -50,7 +50,7 @@ class ForumIndexScreen extends StatelessWidget {
 
         backgroundColor: ColorConstants.accent,
 
-        onPressed: () { ViewHandler.navigateTo(context, const NewPostScreen()); },
+        onPressed: () { ViewHandler.navigateTo(context, const NewPostScreen(), isReplace: false); },
 
         child: const Icon(Icons.add),
       ),

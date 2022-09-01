@@ -11,6 +11,7 @@ class ForumController {
 
   static TextEditingController titleController = TextEditingController();
   static TextEditingController bodyController = TextEditingController();
+  static TextEditingController commentController = TextEditingController();
 
 
   static Future<AllForumsModel> getAllForums(BuildContext context) {
@@ -96,17 +97,16 @@ class ForumController {
   }
 
   ///---------------------------------------------------------------------------
-  static void postComment (BuildContext context, forumId, {
-    required String text,
-  }) {
+  static void postComment (BuildContext context, forumId) {
 
     try {
-      //post request
-      ForumRepository().postComment(context,
-          GlobalData.globalAuth,
-          forumId: forumId,
-          comment: text);
+      if (commentController.text.isNotEmpty){
+        //post request
+        ForumRepository().postComment(context, GlobalData.globalAuth,
+            forumId: forumId, comment: commentController.text);
 
+        commentController.clear();
+      }
     } on DioError catch (e) {
       print("Authorization errroooooor");
       ViewHandler.handleOutDatedAuth(context, e);
