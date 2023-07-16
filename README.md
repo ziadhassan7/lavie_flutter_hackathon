@@ -1,6 +1,7 @@
 # la_vie
 
 La Vie
+[Click Here for Video](https://www.linkedin.com/posts/ziadhassan7_flutter-orangedigitalcenter-hackathon-activity-6981333940003303424-8Xaz?utm_source=share&utm_medium=member_desktop)
 
 ## Splash Screen
 
@@ -16,7 +17,7 @@ La Vie
 
 ## Community
 
-<img src="https://user-images.githubusercontent.com/31738365/188024955-fe8941cb-b952-40f3-b336-c0156097d8d3.jpg" width="200" height="425">  .  <img src="https://user-images.githubusercontent.com/31738365/188024961-c923af27-de16-429a-8a33-df0d621fedc8.jpg" width="200" height="425">  .  <img src="https://user-images.githubusercontent.com/31738365/188024972-20f494be-f147-4706-ae5f-646a877b90ef.jpg" width="200" height="425">
+<img src="https://user-images.githubusercontent.com/31738365/188024955-fe8941cb-b952-40f3-b336-c0156097d8d3.jpg" width="200" height="500">  .  <img src="https://user-images.githubusercontent.com/31738365/188024961-c923af27-de16-429a-8a33-df0d621fedc8.jpg" width="200" height="500">  .  <img src="https://user-images.githubusercontent.com/31738365/188024972-20f494be-f147-4706-ae5f-646a877b90ef.jpg" width="200" height="500">
 
 ## Blogs
 
@@ -24,4 +25,4 @@ La Vie
 
 ## Notifications
 
-<img src="https://user-images.githubusercontent.com/31738365/188025380-c3f431fc-48e6-4a34-90cb-d87e40f7d232.jpg" width="215" height="440">  .  <img src="https://user-images.githubusercontent.com/31738365/188026346-fb1afe44-7a6b-4e1b-bdf3-893f9df8f69a.jpg" width="215" height="440">
+<img src="https://user-images.githubusercontent.com/31738365/188025380-c3f431fc-48e6-4a34-90cb-d87e40f7d232.jpg" width="215" height="500">  .  <img src="https://user-images.githubusercontent.com/31738365/188026346-fb1afe44-7a6b-4e1b-bdf3-893f9df8f69a.jpg" width="215" height="500">
