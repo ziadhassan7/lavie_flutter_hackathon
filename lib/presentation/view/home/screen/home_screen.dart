@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:la_vie_web/presentation/view/home/screen/products_view.dart';
 import 'package:la_vie_web/presentation/view/home/widget/cart_icon.dart';
-import 'package:la_vie_web/presentation/view/home/widget/search_bar.dart';
+import 'package:la_vie_web/presentation/view/home/widget/search_widget.dart';
 import '../../../../data/controller/product/product_controller.dart';
 import '../../common/tabs_widget.dart';
 
 class HomeScreen extends StatelessWidget {
-   List tabs = ["All", "Plants", "Seeds", "Tools"];
+   final List tabs = ["All", "Plants", "Seeds", "Tools"];
 
    HomeScreen({Key? key}) : super(key: key);
 
@@ -28,15 +28,15 @@ class HomeScreen extends StatelessWidget {
 
 
              ///                                                                /Search & Cart
-             Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 8),
+             const Padding(
+               padding: EdgeInsets.symmetric(horizontal: 17, vertical: 8),
 
                child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
 
-                children: const [
+                children: [
 
-                  SearchBar(),
+                  SearchWidget(),
 
                   CartIcon()
 

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:la_vie_web/presentation/view/search/screen/search_screen.dart';
-
 import '../../../../data/controller/view_handler.dart';
 import '../../common/text_poppins.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({Key? key}) : super(key: key);
+class SearchWidget extends StatelessWidget {
+  const SearchWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
