@@ -12,7 +12,7 @@ class SqlClient {
 
   Future<Database>? get database async{
 
-    if(_database != null) _database;
+    if(_database != null) return _database!;
 
     _database = await _initDB();
     return _database!;

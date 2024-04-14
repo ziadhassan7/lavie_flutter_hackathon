@@ -15,6 +15,7 @@ class ButtonAccent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
+
       child: ElevatedButton(
         style: style ?? ButtonStyle(
             backgroundColor: MaterialStateProperty.all(ColorConstants.accent)
