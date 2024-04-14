@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class DioClient {
 
-  static final Dio _dio = Dio();
+  final Dio _dio = Dio();
   String baseUrl = "https://lavie.orangedigitalcenteregypt.com";
 
   DioClient(){
