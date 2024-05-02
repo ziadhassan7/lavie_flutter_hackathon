@@ -9,7 +9,7 @@ La Vie
 
 ## Products View
 
-<img src="https://user-images.githubusercontent.com/31738365/188024491-f01d5db1-ac90-4ece-9ae1-1099f6ea980a.jpg" width="215" height="450">  .  <img src="https://user-images.githubusercontent.com/31738365/188024510-69bac4f5-1c6f-4be7-ae4d-ca19bba16df9.jpg" width="215" height="450">
+<img src="https://user-images.githubusercontent.com/31738365/188024491-f01d5db1-ac90-4ece-9ae1-1099f6ea980a.jpg" width="215" height="460">  .  <img src="https://user-images.githubusercontent.com/31738365/188024510-69bac4f5-1c6f-4be7-ae4d-ca19bba16df9.jpg" width="215" height="460">
 
 ## Qr Scanner Screen
 
