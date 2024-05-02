@@ -17,7 +17,7 @@ La Vie
 
 ## Community
 
-<img src="https://user-images.githubusercontent.com/31738365/188024955-fe8941cb-b952-40f3-b336-c0156097d8d3.jpg" width="200" height="500">  .  <img src="https://user-images.githubusercontent.com/31738365/188024961-c923af27-de16-429a-8a33-df0d621fedc8.jpg" width="200" height="500">  .  <img src="https://user-images.githubusercontent.com/31738365/188024972-20f494be-f147-4706-ae5f-646a877b90ef.jpg" width="200" height="500">
+<img src="https://user-images.githubusercontent.com/31738365/188024955-fe8941cb-b952-40f3-b336-c0156097d8d3.jpg" width="200" height="470">  .  <img src="https://user-images.githubusercontent.com/31738365/188024961-c923af27-de16-429a-8a33-df0d621fedc8.jpg" width="200" height="470">  .  <img src="https://user-images.githubusercontent.com/31738365/188024972-20f494be-f147-4706-ae5f-646a877b90ef.jpg" width="200" height="500">
 
 ## Blogs
 
